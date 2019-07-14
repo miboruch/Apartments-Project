@@ -3,15 +3,20 @@
 #middle-content{
   width: 100%;
   margin: auto;
-  background-color: $font-color;
   font-family: $second-font;
   text-align: center;
+  padding-bottom: 4em;
+}
+
+.content-wrapper{
+  width: 100%;
+  background-color: $font-color;
 }
 
 .content{
   width: 90%;
-  margin: auto;
-  padding-top: 4em;
+  margin: 0 auto;
+  padding: 4em 0;
   h4{
     margin: 0;
   }
@@ -33,15 +38,81 @@
 
 .border{
   height: 1px;
-  width: 90vw;
+  width: 90%;
   margin: auto;
   background: $white;
   opacity: .4;
 }
 
+.box{
+  width: 80%;
+  margin: auto;
+  border-bottom: 1px solid rgba(255,255,255, .3);
+  
+  h1{
+    font-size: 80px;
+    font-weight: bold;
+    font-family: $font;
+    color: $white;
+    margin-bottom: .5rem;
+  }
+  h3{
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+}
 
+.last-box{
+  border-bottom: none;
+}
 
+.presentation-wrapper{
+  width: 100%;
+  background: $white;
+  padding: 3em 0;
+}
 
+.boxes{
+  width: 90%;
+  margin: auto;
+}
+
+.content-presentation{
+  width: 80%;
+  margin: auto;
+
+  .heading-paragraph{
+    font-size: 13px;
+    color: $font-color;
+    font-weight: bold;
+  }
+
+  h1{
+    margin-bottom: 2em;
+    margin-top: 1em;
+    line-height: 1.1;
+  }
+}
+
+.presentation-box{
+
+  padding: 1em 0;
+
+  i{
+    font-size: 50px;
+    color: $font-color;
+  }
+
+  h2{
+    font-weight: bold;
+  }
+
+  p{
+    color: $impact-color;
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
+}
 
 
 

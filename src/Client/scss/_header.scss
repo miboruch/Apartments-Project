@@ -94,7 +94,6 @@
   background: url('../assets/img/bg.jpg'); 
   background-size: cover;
   background-position: 30% 50%;
-  // display: flex;
 }
 
 .logo{
@@ -109,10 +108,13 @@
   position: fixed;
   top: .8rem;
   right: 1em;
-  width: 30px; 
-  height: 30px;
+  padding: 10px; //mq desktop 15px
   z-index: 998;
-  background: transparent;
+  // background: rgba(12,12,12, .6);
+  // background: rgba(57, 180, 73, .8);
+  background: linear-gradient(-45deg, rgba(57, 180, 73, .9), transparent);
+  // background: rgba(102,102,102, .6);
+  border-radius: 3px;
   border: none;
   cursor: pointer;
 }
@@ -130,6 +132,7 @@
   font-family: $second-font;
   font-weight: bolder;
   cursor: pointer;
+  display: none;
 }
 
 .inner-hamburger{
@@ -161,7 +164,7 @@
 }
 
 .inner-hamburger--open{
-  background-color: $background-color;
+  background-color: transparent;
   transition: background-color 0.15s ease-in;
 }
 

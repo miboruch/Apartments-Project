@@ -33,7 +33,15 @@ let userInterfaceModule = (function() {
   for (let i of item) {
     i.addEventListener('mouseenter', function() {
       paragraph.classList.toggle('menu-paragraph--hover');
-    });
+    }),
+      i.addEventListener('click', function() {
+        slider.classList.remove('slider--active');
+        nav.classList.remove('main-nav--open');
+        list.classList.remove('main-list--open');
+        paragraph.classList.remove('p-slider');
+        inner.classList.remove('inner-hamburger--open');
+        social.classList.remove('social-open');
+      });
   }
 
   document.addEventListener('DOMContentLoaded', function() {

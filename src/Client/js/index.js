@@ -9,7 +9,6 @@ let userInterfaceModule = (function(){
       item = document.querySelectorAll('.item'),
       loader = document.querySelector('.loader');
 
-
   let documentObjectsArray = [button, slider, nav, list, inner, 
                               paragraph, social, item, loader];
 
@@ -25,6 +24,14 @@ let userInterfaceModule = (function(){
   for(let i of item){
     i.addEventListener('mouseenter', function(){
       paragraph.classList.toggle('menu-paragraph--hover');
+    }),
+    i.addEventListener('click', function(){
+      slider.classList.remove('slider--active');
+      nav.classList.remove('main-nav--open');
+      list.classList.remove('main-list--open');
+      paragraph.classList.remove('p-slider');
+      inner.classList.remove('inner-hamburger--open');
+      social.classList.remove('social-open');
     })
   };
 

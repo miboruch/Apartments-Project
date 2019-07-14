@@ -1,15 +1,19 @@
 html{
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; 
 }
 
 body{
+  min-height: 100%;
+  min-width: 100%;
   box-sizing: border-box !important;
   margin: 0;
   padding: 0;
-  font-family: 'Raleway'; 
+  font-family: 'Raleway';
 }
 
 @import 'header';
-@import 'content';
+@import 'content'; 

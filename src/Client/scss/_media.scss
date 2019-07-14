@@ -1,6 +1,6 @@
 @import 'variables';
 
-@media (orientation: landscape){
+@media all and (orientation: landscape){
   .main-header{
     min-height: 130vh;
   }
@@ -40,11 +40,17 @@
   }
 }
 
+@media all and (min-height: $mq-phone-medium){
+  .background-text{
+    font-size: 35px;
+  }
+}
+
 @media all and (min-width: $mq-tablet){
   .main-header{
     background-position-x: 70%;
   }
-  
+
   .home-content{
     width: 70%;
     margin-left: 4em; 
@@ -63,6 +69,11 @@
       width: 300px;
       margin: 1em 0;
     }
+
+    button a{
+      display: block;
+      padding: 10px 0;
+    }
   }
 
   .logo{
@@ -74,11 +85,75 @@
     animation: none;
   }
 
-}
-
-@media all and (min-height: $mq-phone-medium){
-  .background-text{
-    font-size: 35px;
+  .button-wrapper{
+    display: flex;
+    flex-direction: column;
   }
+
+  .hamburger::before{
+    display: block;
+  }
+
+  .content{
+    width: 60%;
+  }
+
+  .informations{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .box{
+    width: 45%;
+    border-bottom: none;
+  }
+
+  .content-presentation{
+    width: 60%;
+  }
+  
+  .presentation-wrapper{
+    width: 100%;
+  }
+
+  .boxes{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .presentation-box{
+    width: 35%;
+    padding: 2em;
+    text-align: left;
+
+  }
+  
+  .ic{
+    display: inline-block;
+  }
+
 }
 
+
+@media all and (min-width: $mq-desktop){
+  .box{
+    width: 25%;
+  }
+
+  .button-wrapper{
+    width: 650px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .about-button{
+    margin: 0 1em;
+  }
+
+}
