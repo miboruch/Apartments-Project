@@ -1,0 +1,54 @@
+@import 'variables';
+
+#middle-content{
+  width: 100%;
+  margin: auto;
+  background-color: $font-color;
+  font-family: $second-font;
+  text-align: center;
+}
+
+.content{
+  width: 90%;
+  margin: auto;
+  padding-top: 4em;
+  h4{
+    margin: 0;
+  }
+}
+
+.content-header{
+  margin: 0;
+  margin-bottom: 1em;
+  padding: 0;
+  color: $white;
+}
+
+.content-description{
+  color: $black;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  margin-top: 2em;
+}
+
+.border{
+  height: 1px;
+  width: 90vw;
+  margin: auto;
+  background: $white;
+  opacity: .4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import 'media';

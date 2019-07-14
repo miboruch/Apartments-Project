@@ -1,0 +1,425 @@
+// variables
+@import 'variables';
+
+//animations
+@keyframes text-slide{ 
+  0%{
+    left: 60px;
+    opacity: 0;
+  }
+  75%{
+    opacity: 0.2;
+  }
+  100%{
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes show-text{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes loader{
+  0%{
+    color: $white;
+  }
+  66%{
+    color: $white;
+  }
+  100%{
+    color: $font-color;
+  }
+}
+
+@keyframes home-content-slide{
+  0%{
+    margin-top: -2em;
+  }
+  100%{
+    margin-top: 1em;
+  }
+}
+
+//header styles
+.loader{
+  font-family: $second-font;
+  color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, $background-color, $black); 
+  z-index: 999;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: loader .8s infinite;
+  flex-direction: column;
+  transform: translateY(0);
+  transition: transform 1s ease-in-out;
+  // display: none; //DELETE THIS 
+  
+  h1{
+    margin: 0;
+  }
+  p{
+    margin: 0;
+  }
+}
+
+.loader-disappear{
+  transform: translateY(-100%);
+  transition: transform .4s ease-in-out;
+}
+
+.wrapper{
+  margin: 0;
+  padding: 0;
+}
+
+.main-header{
+  width: 100vw;
+  min-height: 100vh;
+  color: $white;
+  margin: 0;
+  padding: 0;
+  background: url('../assets/img/bg.jpg'); 
+  background-size: cover;
+  background-position: 30% 50%;
+  // display: flex;
+}
+
+.logo{
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 1rem .5em;
+  height: 50px;
+}
+
+.hamburger{
+  position: fixed;
+  top: .8rem;
+  right: 1em;
+  width: 30px; 
+  height: 30px;
+  z-index: 998;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger:focus{
+  outline: 0;
+}
+
+.hamburger::before{
+  content: 'Menu';
+  position: absolute; 
+  color: $font-color;
+  top: 25%;
+  left: -130%;
+  font-family: $second-font;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.inner-hamburger{
+  position: relative;
+  width: 22px;
+  height: 2px;
+  background: $white;
+  transition: all 0.3s ease;
+}
+
+.inner-hamburger::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: -6px;
+  width: 22px;
+  height: 2px;
+  background: $white;
+}
+
+.inner-hamburger::after{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 6px;
+  width: 22px;
+  height: 2px;
+  background: $white;
+}
+
+.inner-hamburger--open{
+  background-color: $background-color;
+  transition: background-color 0.15s ease-in;
+}
+
+.inner-hamburger--open::before{
+  transform: rotate(45deg);
+  transition: transform .3s ease-in-out;
+  top: 0;
+}
+
+.inner-hamburger--open::after{
+  transform: rotate(-45deg);
+  transition: transform .3s ease-in-out;
+  top: 0;
+}
+
+.slider{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background: $background-color;
+  transform: translateX(100%); //Change to 0 to active
+  transition: transform .3s ease-in-out;
+  z-index: 998;
+}
+
+.slider--active{
+  transform: translateX(0);
+}
+
+.main-nav{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin: auto;
+  opacity: 0; //Change to 1 when slider open
+}
+
+.main-nav--open{
+  animation: text-slide .3s .5s ease-in; 
+  animation-fill-mode: forwards;
+}
+
+.main-list{
+  list-style-type: none;
+  text-align: left;
+  padding: 0;
+  margin: 0 2em; 
+  margin-top: 7em;
+  margin-bottom: 3em;
+  opacity: 0;
+}
+
+.main-list--open{
+  animation: show-text .8s 1s ease;
+  animation-fill-mode: forwards;
+}
+
+.menu-paragraph{
+  position: absolute;
+  top: 45px;
+  color: $font-color;
+  font-size: .8em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 3em;
+  opacity: 0; //Change to 1 when slider open
+  transition: all .5s ease-in-out;
+}
+
+.menu-paragraph--hover{
+  color: $white;
+  transition: color .5s ease-in-out;
+}
+
+.p-slider{
+  animation: show-text .8s .5s ease;
+  animation-fill-mode: forwards;
+}
+
+.main-list li{
+  margin: 1em 0; 
+  font-weight: bold;
+}
+
+.main-list a:hover{
+  color: $font-color;
+  transition: color .5s ease-in-out;
+}
+
+.main-list a{
+  cursor: pointer;
+  color: $white;
+  text-decoration: none;
+  transition: all .5s ease-in-out;
+}
+
+.slider-description{
+  width: 80%;
+  margin-left: 2em;
+  margin-bottom: 2rem;
+  font-size: .8em;
+  font-weight: bold;
+  color: $second-color;
+  letter-spacing: 1px;
+}
+
+.name{
+  color: $impact-color;
+  font-weight: bold;
+}
+
+.social-box{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: left;
+}
+
+.icon{
+  width: 20px;
+  height: 20px;
+  fill: $second-color;
+  margin: 0 .6em;
+}
+
+.social{
+  position: fixed;
+  width: 100%;
+  margin-left: 1.5em;
+  opacity: 0;
+} 
+
+.social-open{
+  animation: text-slide .5s 1s ease-in; 
+  animation-fill-mode: forwards;
+}
+
+.social i{
+  color: $second-color;
+  font-weight: bold;
+  font-size: 16px;
+  margin: .3em;
+}
+
+.social i:hover{
+  color: $white;
+  cursor: pointer;
+  transition: color .5s ease-in-out;
+}
+
+.background-text{
+  width: 100%;
+  position: absolute;
+  bottom: 125px;
+  left:75px;
+  color: $second-color;
+  font-size: 20px; //mq
+  z-index: -5;
+  transform: rotate(-90deg);
+  user-select: none;
+  transition: all .5s ease-in-out;
+  margin: 0;
+}
+
+.background-text p{
+  margin: 0;
+}
+
+.letters{
+  color: $font-color;
+}
+
+.home-content{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: -2em; //mq
+  text-align: center;
+  font-family: $second-font;
+  animation: home-content-slide 1s 1.5s forwards;
+
+  h1{
+    font-size: 30px;
+    font-weight: bolder;
+    margin-top: .5em;
+    margin-bottom: 1.5em;
+  }
+
+  h3{
+    margin: 0;
+    text-align: left;
+    color: $impact-color;
+  }
+
+  button{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: auto;
+    background: transparent;
+    border: 2px solid $white;
+    margin-bottom: 1em;
+    color: $white;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: $second-font;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  button::before{
+    position: absolute;
+    content: '';
+    top:-2px;
+    right:0;
+    width: 40px;
+    height: 55px;
+    transform: translateX(25px);
+    background: $font-color;
+    filter: blur(25px);
+    transition: all .5s ease-in-out;
+  }
+}
+
+button a{
+  color: $white;
+  text-decoration: none;
+}
+
+.line{
+  position: absolute;
+  bottom: -50px;
+  right: 100px;
+  height: 100px;
+  width: 2px;
+  background: linear-gradient(to top, $white, $font-color);
+}
+
+.text{
+  padding: 0 1em;
+  font-size: 12px;
+  font-family: $second-font;
+  text-transform: uppercase;
+}
+
+a{
+  color: $white;
+  text-decoration: none;
+}
+
+.scroll-icon{
+  transform: rotate(45deg);
+}
+
+
+@import 'media';

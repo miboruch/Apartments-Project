@@ -1,0 +1,84 @@
+@import 'variables';
+
+@media (orientation: landscape){
+  .main-header{
+    min-height: 130vh;
+  }
+  .line{
+    display: none;
+  }
+  .content{
+    padding-top: 3em;
+  }
+  .slider-description{
+    display: none;
+  }
+  .social{
+    display: none;
+  }
+  .background-text{
+    display: none;
+  }
+  .home-content{
+    margin-top: 2em;
+    padding-bottom: 2em;
+  }
+}
+
+@media (orientation: landscape) and (min-width: $mq-tablet){
+  .slider-description{
+    display: block;
+  }
+  .social{
+    display: block;
+  }
+  .background-text{
+    display: block;
+  }
+  .home-content{
+    animation: none;
+  }
+}
+
+@media all and (min-width: $mq-tablet){
+  .main-header{
+    background-position-x: 70%;
+  }
+  
+  .home-content{
+    width: 70%;
+    margin-left: 4em; 
+    margin-top: 10em;
+    text-align: left;
+
+    h1{
+      font-size: 50px;
+    }
+
+    h3{
+      font-size: 25px;
+    }
+
+    button{
+      width: 300px;
+      margin: 1em 0;
+    }
+  }
+
+  .logo{
+    font-size: 35px;
+    padding: 1em;
+  }
+
+  .home-content{
+    animation: none;
+  }
+
+}
+
+@media all and (min-height: $mq-phone-medium){
+  .background-text{
+    font-size: 35px;
+  }
+}
+

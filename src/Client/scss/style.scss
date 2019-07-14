@@ -1,1 +1,15 @@
-@import 'main';
+html{
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body{
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway'; 
+}
+
+@import 'header';
+@import 'content';
