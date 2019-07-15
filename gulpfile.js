@@ -49,7 +49,7 @@ gulp.task('uglify', function(){
   }))
   .pipe(gulp.dest('public/Server/'))
 
-  return merge(js, server);
+  return merge(js, server); 
 });
 
 gulp.task('watch', function(){
