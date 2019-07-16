@@ -1,0 +1,97 @@
+@import 'variables';
+
+.main-footer{
+  width: 100%;
+  background: $black;
+  color: $white;
+}
+
+.footer-wrapper{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  p{
+    color: $impact-color;
+    font-weight: bold;
+    line-height: 1.4;
+    letter-spacing: 1px;
+  }
+
+  h3{
+    padding-bottom: 1em;
+  }
+}
+
+.footer-heading{
+  color: $font-color;
+  padding-top: 1em;
+}
+
+input{
+  color: $white;
+  font-weight: bold;
+  font-family: $second-font;
+  letter-spacing: 1px;
+  background: transparent;
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid rgba(102,102,102,.3);
+  transition: all .3s ease;
+  margin: 1em 0;
+}
+
+input::placeholder{
+  color: rgba(102,102,102,.7);
+  font-family: $second-font;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+input:focus{
+  outline: none;
+  border-bottom: 1px solid $font-color;
+  transition: border-bottom .3s ease;
+}
+
+.newsletter-button{
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background-color: $font-color;
+  font-family: $second-font;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: $white;
+  border: none;
+  margin: 2em 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.newsletter-button::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -30px;
+  height: 40px;
+  width: 30px;
+  background: $white;
+  filter: blur(20px);
+  overflow: visible;
+  transition: all 1s ease;
+  overflow: hidden;
+  transform: rotate(45deg);
+}
+
+.newsletter-button:hover::before{
+  transform: translateX(450px);
+}
+
+
+
+@import 'media';

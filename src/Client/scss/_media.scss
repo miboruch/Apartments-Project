@@ -138,7 +138,7 @@
   }
 
   .option-wrapper{
-    width: 90%;
+    width: 80%;
     margin: auto;
     display: grid;
     grid-template-columns: 1px auto auto 1px;
@@ -170,6 +170,65 @@
     grid-row: 2/5;
   }
 
+  #form{
+    background: $background-color;
+  }
+
+  #user-form{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    padding: 0;
+  }
+
+  .form-to-fill{
+    width: 70%;
+    padding: 2em;
+  }
+
+  #contact-box{
+    width: 30%;
+    text-align: left;
+    padding: 2em;
+    margin-top: 0;
+    background: rgba(0,0,0,.3);
+
+    p{
+      color: $impact-color;
+      letter-spacing: 2px;
+    }
+
+    h3{
+      padding-bottom: 2em;
+    }
+  }
+
+  .submit-button,
+  .newsletter-button{
+    width: 300px;
+  }
+
+  .footer-wrapper{
+    width: 90%;
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-heading{
+    padding-top: 0;
+  }
+
+  .left-side{
+    width: 45%;
+  }
+
+  .right-side{
+    width: 45%;
+  }
+
+
 }
 
 
@@ -188,9 +247,4 @@
   .about-button{
     margin: 0 1em;
   }
-
-  #form{
-    background: $background-color;
-  }
-
 }
