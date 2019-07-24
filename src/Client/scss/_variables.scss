@@ -62,3 +62,7 @@ select:focus{
   transition: border-bottom .3s ease;
 }
  
+.select-error{ 
+  border-bottom: 2px solid tomato !important;
+  transition: border-bottom .3s ease;
+}

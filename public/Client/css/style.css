@@ -54,6 +54,10 @@ select:focus {
   border-bottom: 1px solid #39b449;
   transition: border-bottom .3s ease; }
 
+.select-error {
+  border-bottom: 2px solid tomato !important;
+  transition: border-bottom .3s ease; }
+
 @keyframes text-slide {
   0% {
     left: 60px;
@@ -444,6 +448,10 @@ select:focus {
   border-bottom: 1px solid #39b449;
   transition: border-bottom .3s ease; }
 
+.select-error {
+  border-bottom: 2px solid tomato !important;
+  transition: border-bottom .3s ease; }
+
 @media all and (orientation: landscape) {
   .main-header {
     min-height: 130vh; }
@@ -637,6 +645,10 @@ select option {
 select:focus {
   outline: none;
   border-bottom: 1px solid #39b449;
+  transition: border-bottom .3s ease; }
+
+.select-error {
+  border-bottom: 2px solid tomato !important;
   transition: border-bottom .3s ease; }
 
 #middle-content {
@@ -767,6 +779,10 @@ select:focus {
   border-bottom: 1px solid #39b449;
   transition: border-bottom .3s ease; }
 
+.select-error {
+  border-bottom: 2px solid tomato !important;
+  transition: border-bottom .3s ease; }
+
 @media all and (orientation: landscape) {
   .main-header {
     min-height: 130vh; }
@@ -960,6 +976,10 @@ select option {
 select:focus {
   outline: none;
   border-bottom: 1px solid #39b449;
+  transition: border-bottom .3s ease; }
+
+.select-error {
+  border-bottom: 2px solid tomato !important;
   transition: border-bottom .3s ease; }
 
 #form {
@@ -1043,7 +1063,11 @@ select:focus {
 
 .info {
   width: 90%;
-  margin: auto; }
+  margin: auto;
+  font-family: "Montserrat"; }
+
+.hotel-description {
+  font-size: 14px; }
 
 .data-form {
   display: flex;
@@ -1092,6 +1116,9 @@ select:focus {
 
 .submit-button:hover::before {
   transform: translateX(450px); }
+
+.submit-button:disabled {
+  opacity: .5; }
 
 #contact-box {
   width: 90%;
@@ -1158,6 +1185,10 @@ select option {
 select:focus {
   outline: none;
   border-bottom: 1px solid #39b449;
+  transition: border-bottom .3s ease; }
+
+.select-error {
+  border-bottom: 2px solid tomato !important;
   transition: border-bottom .3s ease; }
 
 @media all and (orientation: landscape) {
@@ -1353,6 +1384,10 @@ select option {
 select:focus {
   outline: none;
   border-bottom: 1px solid #39b449;
+  transition: border-bottom .3s ease; }
+
+.select-error {
+  border-bottom: 2px solid tomato !important;
   transition: border-bottom .3s ease; }
 
 .main-footer {
@@ -1473,6 +1508,10 @@ select option {
 select:focus {
   outline: none;
   border-bottom: 1px solid #39b449;
+  transition: border-bottom .3s ease; }
+
+.select-error {
+  border-bottom: 2px solid tomato !important;
   transition: border-bottom .3s ease; }
 
 @media all and (orientation: landscape) {

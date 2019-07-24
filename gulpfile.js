@@ -10,6 +10,11 @@ gulp.task('update', function(){
   .pipe(gulp.dest('public/'))
 });
 
+gulp.task('updateJS', function(){
+  return gulp.src('src/Client/js/*.js')
+  .pipe(gulp.dest('public/Client/js/'))
+});
+
 gulp.task('sass', function(){
   return gulp.src('src/Client/scss/*.scss')
   .pipe(sass().on('error', function(e){
@@ -54,7 +59,8 @@ gulp.task('uglify', function(){
 
 gulp.task('watch', function(){
   return gulp.watch('src/Client/scss/*.scss', gulp.series('sass')),
-  gulp.watch('src/Client/js/*.js', gulp.series('prettier')),
-  gulp.watch('public/Server/', gulp.series('prettier')),
+  // gulp.watch('src/Client/js/*.js', gulp.series('prettier')),
+  gulp.watch('src/Client/js/*.js', gulp.series('updateJS')),
+  gulp.watch('src/Server/', gulp.series('prettier')),
   gulp.watch('src/*', gulp.series('update'));
 })

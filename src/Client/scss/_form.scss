@@ -107,6 +107,11 @@
 .info{
   width: 90%;
   margin: auto;
+  font-family: $second-font;
+}
+
+.hotel-description{
+  font-size: 14px;
 }
 
 .data-form{
@@ -128,6 +133,7 @@
     background: $white;
   }
 }
+
 
 .submit-button{
   position: relative;
@@ -162,6 +168,10 @@
 
 .submit-button:hover::before{
   transform: translateX(450px);
+}
+
+.submit-button:disabled{
+  opacity: .5;
 }
 
 #contact-box{
