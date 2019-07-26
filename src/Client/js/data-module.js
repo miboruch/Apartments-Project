@@ -1,118 +1,7 @@
-let userInterfaceModule = (function(){
-  let button = document.querySelector('.hamburger'),
-      slider = document.querySelector('.slider'),
-      nav = document.querySelector('.main-nav'),
-      list = document.querySelector('.main-list'),
-      inner = document.querySelector('.inner-hamburger'),
-      paragraph = document.querySelector('.menu-paragraph'),
-      social = document.querySelector('.social'),
-      item = document.querySelectorAll('.item'),
-      loader = document.querySelector('.loader'),
-      firstOption = document.querySelector('.first'),
-      secondOption = document.querySelector('.second'),
-      thirdOption = document.querySelector('.third'),
-      fourthOption = document.querySelector('.fourth'),
-      userForm = document.getElementById('user-form'),
-      /* FORM INPUTS */
-      inputNodeList = document.querySelectorAll('.in'),
-      selectNodeList = document.querySelectorAll('.sel'),
-      hotelName = document.querySelector('.hotel-name'),
-      hotelAddress = document.querySelector('.hotel-address'),
-      hotelDescription = document.querySelector('.hotel-description'),
-      hotelPrice = document.querySelector('.price');
-
-  let selectArr = Array.from(selectNodeList);
-  let inputArr = Array.from(inputNodeList);
-
-  const finalButton = document.querySelector('.submit-button');
-  const daysArray = ([...Array(31).keys()].map(x=>++x));
-  const monthsArray = ['January', 'February','March','April','May','June','July', 'August',
-                     'September', 'October', 'November', 'December'];
-  const yearsArray = [2019, 2020, 2021];
-  const hotelDOM = [hotelName, hotelAddress, hotelDescription, hotelPrice];
-  const options = [firstOption, secondOption, thirdOption, fourthOption];
-
-  const inputsArray = ([firstName, lastName, id, card] = inputArr);
-  const selectArray = ([daysFrom, monthsFrom, yearFrom, daysTo, monthsTo, yearTo] = selectArr);
-
-  /* All events listener for DOM manipulation*/
-  (function(){
-    button.addEventListener('click', function(){
-      slider.classList.toggle('slider--active');
-      nav.classList.toggle('main-nav--open');
-      list.classList.toggle('main-list--open');
-      paragraph.classList.toggle('p-slider');
-      inner.classList.toggle('inner-hamburger--open');
-      social.classList.toggle('social-open');
-    });  
-
-    for(let i of item){
-      i.addEventListener('mouseenter', function(){
-        paragraph.classList.toggle('menu-paragraph--hover');
-      }),
-      i.addEventListener('click', function(){
-        slider.classList.remove('slider--active');
-        nav.classList.remove('main-nav--open');
-        list.classList.remove('main-list--open');
-        paragraph.classList.remove('p-slider');
-        inner.classList.remove('inner-hamburger--open');
-        social.classList.remove('social-open');
-      })
-    };
-
-    document.addEventListener('DOMContentLoaded', function(){
-      window.setTimeout(function(){
-        loader.classList.add('loader-disappear');
-      },1000); //Zsuniecie loadera
-      window.setTimeout(function(){
-        loader.style.display = 'none';
-      },3000); //display: none dla loadera
-    });
-  })();
-
-  //Function which allows us to set options in select menu
-  function fillSelectMenu(arrayName, selectMenu){
-    let counter = 0;
-    arrayName.map(item =>{
-      let option = document.createElement('option');
-      counter++;
-      option.value = counter;
-      option.innerHTML = item;
-      selectMenu.appendChild(option);
-    })   
-  }
-
-  fillSelectMenu(daysArray, daysFrom);
-  fillSelectMenu(daysArray, daysTo);
-  fillSelectMenu(monthsArray, monthsFrom);
-  fillSelectMenu(monthsArray, monthsTo);
-  fillSelectMenu(yearsArray, yearFrom);
-  fillSelectMenu(yearsArray, yearTo);
-
-  return {
-    hotelDOM: hotelDOM,
-    options: options,
-    monthsArray: monthsArray,
-    yearsArray: yearsArray,
-    inputArray: inputsArray,
-    selectArray: selectArray,
-    submitButton: finalButton,
-  }
-})();
-
-
-/* 
-*
-*
-*   DATA MODULE
-*   
-*
-*/
-
+import {userInterfaceModule} from './ui-module';
 
 let dataModule = (function(UImodule){
-  
-  
+
   //--VARIABLES-----------------------------------------------
 
   let module = UImodule;
@@ -253,8 +142,15 @@ let dataModule = (function(UImodule){
       submitButton.disabled = false;
     })
 
-
   //--DATE-----------------------------------------------
+
+  function daysAndPriceCounter(peroidObject, apartmentObject){
+    let time = Math.abs(peroidObject.date1.getTime() - peroidObject.date2.getTime());
+    let days = Math.ceil(time / ( 1000 * 3600 * 24));
+    days === 0 ? days = 1 : null;
+    
+    return Math.round(apartmentObject.dayPrice * days);
+  }
 
   function getYear(yearArray, yearIndex){
     /* Returns a year based on year array(2019,2020,2021) 
@@ -265,7 +161,9 @@ let dataModule = (function(UImodule){
   function getDate(yearsArray, yearIndex, monthIndex, dayIndex){
     /* Returns full date */
     try{
-      return new Date(getYear(yearsArray, yearIndex), parseInt(monthIndex)-1, dayIndex);
+      let date = new Date(getYear(yearsArray, yearIndex), parseInt(monthIndex)-1, dayIndex);
+      date.setHours(date.getHours()+2); 
+      return date;
     }catch(e){
       console.log(e);
     }
@@ -274,8 +172,8 @@ let dataModule = (function(UImodule){
   function checkDate(firstDate, secondDate){
     /* Check if firstDate is not greater than secondDate
     Returns Peroid object(Date from, Date to) */
-    let [dayFrom] = [...selectArray];
-
+    let dayFrom = selectArray[0];
+    
     if(firstDate > secondDate){
       dayFrom.classList.add('select-error');
       throw 'Peroid could not be created!'; //Dodac klase css ktora zaznaczy pola dayFrom, monthFrom, yearFrom
@@ -284,7 +182,6 @@ let dataModule = (function(UImodule){
       return new Peroid(firstDate, secondDate);
     }
   }
-
 
   //--PERSON-----------------------------------------------
 
@@ -305,19 +202,38 @@ let dataModule = (function(UImodule){
       }
     }
   }
+  /* Not working */
+  function sendToAPI(obj){
+    let objJSON = JSON.stringify(obj);
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST','/add');
+    
+    xhr.setRequestHeader('Content-Type','application/json');
+    xhr.send(objJSON);
+  
+    xhr.addEventListener('load', function(){
+      console.log(xhr.responseText);
+    });
 
+    xhr.addEventListener('error', function(){
+      console.log('Something went wrong');
+    });
+  }
 
 
   function getData(){
     try{
       let array = checkValidation(inputArray, selectArray);
       let [firstName, lastName, id, card, dayFrom, monthFrom, yearFrom, dayTo, monthTo, yearTo] = array;
-      let [firstDate, secondDate] = [getDate(module.yearsArray, yearFrom, monthFrom, dayFrom),getDate(module.yearsArray, yearTo, monthTo, dayTo)]
-      
+      let [firstDate, secondDate] = [getDate(module.yearsArray, yearFrom, monthFrom, dayFrom),getDate(module.yearsArray, yearTo, monthTo, dayTo)];
+      // console.log(dayFrom, monthFrom, yearFrom, dayTo, monthTo, yearTo);
+      console.log(firstDate);
+      console.log(secondDate);
+      let currentPerson = memoizedPersonObject()(firstName, lastName, id, card);
+      let currentApartment = getHotel(selectedHotel);
+      let currentPeroid = checkDate(firstDate, secondDate);
 
-      return {...memoizedPersonObject()(firstName, lastName, id, card),
-              ...checkDate(firstDate, secondDate),
-              ...getHotel(selectedHotel)};
+      return {...currentPerson, ...currentPeroid, ...currentApartment, price: daysAndPriceCounter(currentPeroid, currentApartment)};
 
     }catch(e){ 
       console.log(e);
@@ -330,16 +246,10 @@ let dataModule = (function(UImodule){
 
   return{
     getData: getData,
+    sendToAPI: sendToAPI,
   }
 
 
 })(userInterfaceModule);
 
-// CONTROLLER MODULE -->-->-->-->-->-->-->-->-->-->-->-->
-
-let controllerModule = (function(UImodule, userDataModule){
-  UImodule.submitButton.addEventListener('click', function(){
-    // console.log(userDataModule.getData());
-    console.log(dataModule.getData());
-  })
-})(userInterfaceModule, dataModule);
+export {dataModule};
