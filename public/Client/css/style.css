@@ -32,7 +32,12 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  border-bottom: 1px solid #39b449;
+  border-bottom: 1px solid #39b449 !important;
+  transition: border-bottom .3s ease; }
+
+input:hover {
+  outline: none;
+  border-bottom: 1px solid #fff;
   transition: border-bottom .3s ease; }
 
 select {
@@ -133,7 +138,7 @@ select:focus {
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 2px;
-  padding: 1rem .5em;
+  padding: 1rem .5rem;
   height: 50px; }
 
 .hamburger {
@@ -426,7 +431,12 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  border-bottom: 1px solid #39b449;
+  border-bottom: 1px solid #39b449 !important;
+  transition: border-bottom .3s ease; }
+
+input:hover {
+  outline: none;
+  border-bottom: 1px solid #fff;
   transition: border-bottom .3s ease; }
 
 select {
@@ -596,6 +606,8 @@ select:focus {
     width: 45%; } }
 
 @media all and (min-width: 1440px) {
+  .main-header {
+    width: 100%; }
   .box {
     width: 25%; }
   .button-wrapper {
@@ -625,7 +637,12 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  border-bottom: 1px solid #39b449;
+  border-bottom: 1px solid #39b449 !important;
+  transition: border-bottom .3s ease; }
+
+input:hover {
+  outline: none;
+  border-bottom: 1px solid #fff;
   transition: border-bottom .3s ease; }
 
 select {
@@ -757,7 +774,12 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  border-bottom: 1px solid #39b449;
+  border-bottom: 1px solid #39b449 !important;
+  transition: border-bottom .3s ease; }
+
+input:hover {
+  outline: none;
+  border-bottom: 1px solid #fff;
   transition: border-bottom .3s ease; }
 
 select {
@@ -927,6 +949,8 @@ select:focus {
     width: 45%; } }
 
 @media all and (min-width: 1440px) {
+  .main-header {
+    width: 100%; }
   .box {
     width: 25%; }
   .button-wrapper {
@@ -956,7 +980,12 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  border-bottom: 1px solid #39b449;
+  border-bottom: 1px solid #39b449 !important;
+  transition: border-bottom .3s ease; }
+
+input:hover {
+  outline: none;
+  border-bottom: 1px solid #fff;
   transition: border-bottom .3s ease; }
 
 select {
@@ -1165,7 +1194,12 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  border-bottom: 1px solid #39b449;
+  border-bottom: 1px solid #39b449 !important;
+  transition: border-bottom .3s ease; }
+
+input:hover {
+  outline: none;
+  border-bottom: 1px solid #fff;
   transition: border-bottom .3s ease; }
 
 select {
@@ -1335,6 +1369,8 @@ select:focus {
     width: 45%; } }
 
 @media all and (min-width: 1440px) {
+  .main-header {
+    width: 100%; }
   .box {
     width: 25%; }
   .button-wrapper {
@@ -1364,7 +1400,12 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  border-bottom: 1px solid #39b449;
+  border-bottom: 1px solid #39b449 !important;
+  transition: border-bottom .3s ease; }
+
+input:hover {
+  outline: none;
+  border-bottom: 1px solid #fff;
   transition: border-bottom .3s ease; }
 
 select {
@@ -1488,7 +1529,12 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  border-bottom: 1px solid #39b449;
+  border-bottom: 1px solid #39b449 !important;
+  transition: border-bottom .3s ease; }
+
+input:hover {
+  outline: none;
+  border-bottom: 1px solid #fff;
   transition: border-bottom .3s ease; }
 
 select {
@@ -1658,6 +1704,8 @@ select:focus {
     width: 45%; } }
 
 @media all and (min-width: 1440px) {
+  .main-header {
+    width: 100%; }
   .box {
     width: 25%; }
   .button-wrapper {

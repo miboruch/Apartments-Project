@@ -36,7 +36,13 @@ input::placeholder{
 
 input:focus{
   outline: none;
-  border-bottom: 1px solid $font-color;
+  border-bottom: 1px solid $font-color !important;
+  transition: border-bottom .3s ease;
+}
+
+input:hover{
+  outline: none;
+  border-bottom: 1px solid $white;
   transition: border-bottom .3s ease;
 }
 
