@@ -5,6 +5,7 @@ let userInterfaceModule = (function() {
     list = document.querySelector('.main-list'),
     inner = document.querySelector('.inner-hamburger'),
     paragraph = document.querySelector('.menu-paragraph'),
+    confirmation = document.querySelector('.conf'),
     social = document.querySelector('.social'),
     item = document.querySelectorAll('.item'),
     loader = document.querySelector('.loader'),
@@ -78,6 +79,15 @@ let userInterfaceModule = (function() {
     });
   })();
 
+  function setElementAsVisible(moduleElement) {
+    moduleElement.style.opacity = '1';
+    moduleElement.style.visibility = 'visible';
+    setTimeout(function() {
+      moduleElement.style.opacity = '0';
+      moduleElement.style.visibility = 'hidden';
+    }, 3000);
+  }
+
   //Function which allows us to set options in select menu
   function fillSelectMenu(arrayName, selectMenu) {
     let counter = 0;
@@ -105,6 +115,8 @@ let userInterfaceModule = (function() {
     yearsArray: yearsArray,
     inputArray: inputArr,
     selectArray: selectArr,
+    confirmation: confirmation,
+    setElementAsVisible: setElementAsVisible,
     submitButton: finalButton
   };
 })();

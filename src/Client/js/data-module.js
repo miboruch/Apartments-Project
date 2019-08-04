@@ -44,27 +44,16 @@ let dataModule = (function(UImodule) {
 
   //--INPUTS----
 
-  function getSelectedText(selectMenuArray) {
-    /* Get text from select menu */
-    let result = [];
-    selectMenuArray.map(item => {
-      result = [...result, item.options[item.selectedIndex].value];
-    });
-    return result;
-  }
-
-  function getInputText(inputArray) {
-    /* Get text from input */
+  function getAllValues(inputArray, selectMenuArray) {
     let result = [];
     inputArray.map(item => {
       result = [...result, item.value];
     });
-    return result;
-  }
+    selectMenuArray.map(item => {
+      result = [...result, item.options[item.selectedIndex].value];
+    });
 
-  function getAllValues(inputArray, selectArray) {
-    /* Return all values from form */
-    return [...getInputText(inputArray), ...getSelectedText(selectArray)];
+    return [...result];
   }
 
   function checkValidation(inputArray, selectArray, counter = 4) {

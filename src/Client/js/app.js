@@ -11,6 +11,7 @@ import {userInterfaceModule} from './ui-module';
         throw new Error('Cannot create PDF');
       } else {
         userDataModule.sendToAPI(object);
+        UImodule.setElementAsVisible(UImodule.confirmation);
       }
     } catch (e) {
       console.log(e);
