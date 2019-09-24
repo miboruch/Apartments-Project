@@ -1,7 +1,5 @@
 function generateName() {
-  let d = new Date();
-  let time = d.getTime();
-  let name = `confirmation-${time}.pdf`;
+  let name = `confirmation.pdf`;
   return name;
 }
 

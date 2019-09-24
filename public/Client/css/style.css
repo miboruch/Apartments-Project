@@ -1104,7 +1104,7 @@ select:focus {
 
 .input-error {
   border-bottom: 2px solid tomato !important;
-  transition: border-bottom .3s ease;
+  transition: border-bottom 0.3s ease;
   position: relative; }
   .input-error .input-error::after {
     content: 'This field is required';
@@ -1147,7 +1147,13 @@ select:focus {
   transform: translateX(450px); }
 
 .submit-button:disabled {
-  opacity: .5; }
+  opacity: 0.5; }
+
+.place {
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 3px; }
 
 .conf {
   text-align: left;
@@ -1192,11 +1198,11 @@ select:focus {
 .icons {
   margin-right: 1em;
   cursor: pointer;
-  transition: all .5s ease; }
+  transition: all 0.5s ease; }
 
 .icons:hover {
   color: #fff;
-  transition: color .5s ease; }
+  transition: color 0.5s ease; }
 
 input {
   color: #fff;

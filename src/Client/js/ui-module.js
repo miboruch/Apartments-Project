@@ -82,10 +82,10 @@ let userInterfaceModule = (function() {
   function setElementAsVisible(moduleElement) {
     moduleElement.style.opacity = '1';
     moduleElement.style.visibility = 'visible';
-    setTimeout(function() {
+    setTimeout(() => {
       moduleElement.style.opacity = '0';
       moduleElement.style.visibility = 'hidden';
-    }, 3000);
+    }, 8000);
   }
 
   //Function which allows us to set options in select menu
