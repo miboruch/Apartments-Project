@@ -36,6 +36,7 @@ gulp.task('watch', function() {
   return (
     gulp.watch('src/Client/scss/*.scss', gulp.series('sass')),
     gulp.watch('src/*', gulp.series('update')),
-    gulp.watch('src/Server/', gulp.series('updateServer'))
+    gulp.watch('src/Server/', gulp.series('updateServer')),
+    gulp.watch('src/Client/js/*.js', gulp.series('updateJS'))
   );
 });

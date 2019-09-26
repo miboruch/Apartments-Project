@@ -122,12 +122,12 @@
   transition: border-bottom 0.3s ease;
   position: relative;
 
-  .input-error::after {
-    content: 'This field is required';
+  .input-error::before {
+    content: 'XD';
     position: absolute;
     color: $white;
-    top: 0;
-    left: 0;
+    top: 10%;
+    left: 10%;
     background: $white;
   }
 }
