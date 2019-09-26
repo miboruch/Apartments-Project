@@ -7,7 +7,7 @@ let userInterfaceModule = (function() {
     paragraph = document.querySelector('.menu-paragraph'),
     confirmation = document.querySelector('.conf'),
     social = document.querySelector('.social'),
-    item = document.querySelectorAll('.item'),
+    menuItem = document.querySelectorAll('.item'),
     loader = document.querySelector('.loader'),
     firstOption = document.querySelector('.first'),
     secondOption = document.querySelector('.second'),
@@ -56,7 +56,7 @@ let userInterfaceModule = (function() {
       social.classList.toggle('social-open');
     });
 
-    for (let i of item) {
+    for (let i of menuItem) {
       i.addEventListener('mouseenter', function() {
         paragraph.classList.toggle('menu-paragraph--hover');
       }),
@@ -83,31 +83,30 @@ let userInterfaceModule = (function() {
   function setElementAsVisible(moduleElement) {
     moduleElement.style.opacity = '1';
     moduleElement.style.visibility = 'visible';
-    setTimeout(() => {
+
+    moduleElement.addEventListener('click', function() {
       moduleElement.style.opacity = '0';
       moduleElement.style.visibility = 'hidden';
-    }, 8000);
+    });
   }
 
   //Function which allows us to set options in select menu
-  function fillSelectMenu(arrayName, selectMenu) {
-    let counter = 0;
-    arrayName.map(item => {
-      let option = document.createElement('option');
-      counter++;
-      option.value = counter;
+  function fillSelectMenu(arrayName, selectMenu, secondSelectMenu) {
+    arrayName.map((item, index) => {
+      const option = document.createElement('option');
+      option.value = index + 1;
       option.innerHTML = item;
       selectMenu.appendChild(option);
+
+      const secondOption = option.cloneNode(true);
+      secondSelectMenu.appendChild(secondOption);
     });
   }
   let [dayFrom, monthFrom, yearFrom, dayTo, monthTo, yearTo] = selectArr;
 
-  fillSelectMenu(daysArray, dayFrom);
-  fillSelectMenu(daysArray, dayTo);
-  fillSelectMenu(monthsArray, monthFrom);
-  fillSelectMenu(monthsArray, monthTo);
-  fillSelectMenu(yearsArray, yearFrom);
-  fillSelectMenu(yearsArray, yearTo);
+  fillSelectMenu(daysArray, dayFrom, dayTo);
+  fillSelectMenu(monthsArray, monthFrom, monthTo);
+  fillSelectMenu(yearsArray, yearFrom, yearTo);
 
   return {
     hotelDOM: hotelDOM,

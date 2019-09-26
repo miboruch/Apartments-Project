@@ -47,7 +47,6 @@ let dataModule = (function(UImodule) {
 
   function getAllValues(userIdInput, inputArray, selectMenuArray) {
     let result = [];
-
     result = [...result, userIdInput.value];
 
     inputArray.map(item => {
@@ -118,7 +117,7 @@ let dataModule = (function(UImodule) {
     /* Returns hotel object -> needed when we return 
         one big object (Person, Peroid, Apartment) */
     let currentHotel = hotelData[index];
-    let {name, address, description, dayPrice} = {...currentHotel};
+    let {name, address, description, dayPrice} = currentHotel;
     return new Apartment(name, address, description, dayPrice);
   }
 
@@ -217,7 +216,6 @@ let dataModule = (function(UImodule) {
   function getData() {
     try {
       let array = checkValidation(userIdInput, inputArray, selectArray);
-      console.log(array);
       let [
         id,
         firstName,
